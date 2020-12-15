@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset=utf-8 />
+		<title>Document</title>
+		<style>
+			body {padding-top:50px} 
+		</style> 
+	</head>
+	<body>
+		<center>
+			<h2>2. Write a program to take 10 numbers in an array and count the number of positive, negative numbers and zeros</h2><br>
+			<h3>Press 'Add' to add element to the array and Press 'Display' to see the positive, negetive and zeroes count</h3>
+			<input type="number" id="text1"></input>
+			<input type="button" id="button1" value="Add" onclick="add_element_to_array();"></input>
+			<input type="button" id="button2" value="Display" onclick="display_array();"></input>
+			<div id="Result"></div> 
+		</center>
+
+	<script>
+		let x = 0
+	let array = []
+
+	function add_element_to_array()
+	{
+	 array[x] = document.getElementById("text1").value
+	 x++;
+	 document.getElementById("text1").value = ""
+	 document.getElementById("text1").focus()
+
+	 if(array.length == 10){
+	 	document.getElementById("button1").style.display = "none"
+	 }
+	}
+
+	function display_array()
+	{
+	  let e = "<hr/>"   
+	   let positive = 0
+	   let negetive = 0
+	   let zeroes = 0
+	    
+	   for (let y=0; y<array.length; y++)
+	   {
+	   	if(array[y] > 0)
+	   		{positive++}
+	   	if(array[y] < 0)
+	   		{negetive++}
+	   	if(array[y] == 0)
+	   		{zeroes++}
+	   }
+	   e += "Array Elements:" + array + "<br>Positives = " + positive + "<br>Ngetives = " + negetive + "<br>Zeroes = " + zeroes
+	   document.getElementById("Result").innerHTML = e
+	}
+	</script>
+	</body>
+</html>
